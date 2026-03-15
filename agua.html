@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+<title>Calculadora de água por dia | Prato & Peso</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Calcule quantos litros de água beber por dia de acordo com seu peso e nível de atividade.">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://www.pratoepeso.com.br/agua.html">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
+<link rel="icon" href="favicon-192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Prato &amp; Peso">
+<meta property="og:title" content="Calculadora de água por dia | Prato & Peso">
+<meta property="og:description" content="Calcule quantos litros de água beber por dia de acordo com seu peso e nível de atividade.">
+<meta property="og:url" content="https://www.pratoepeso.com.br/agua.html">
+<meta property="og:image" content="https://www.pratoepeso.com.br/assets/logo-social.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Calculadora de água por dia | Prato & Peso">
+<meta name="twitter:description" content="Calcule quantos litros de água beber por dia de acordo com seu peso e nível de atividade.">
+<meta name="twitter:image" content="https://www.pratoepeso.com.br/assets/logo-social.png">
+<link rel="stylesheet" href="style.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "name": "Prato & Peso", "url": "https://www.pratoepeso.com.br/", "logo": "https://www.pratoepeso.com.br/favicon-512.png", "image": "https://www.pratoepeso.com.br/assets/logo-social.png"}, {"@context": "https://schema.org", "@type": "WebPage", "name": "Calculadora de água por dia", "description": "Estime quantos litros de água beber por dia conforme peso e atividade.", "url": "https://www.pratoepeso.com.br/agua.html", "isPartOf": {"@type": "WebSite", "name": "Prato & Peso", "url": "https://www.pratoepeso.com.br"}}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Quanta água devo beber por dia?", "acceptedAnswer": {"@type": "Answer", "text": "A necessidade varia, mas uma conta por peso corporal já ajuda a criar uma meta inicial de hidratação."}}, {"@type": "Question", "name": "Treino e calor mudam a quantidade?", "acceptedAnswer": {"@type": "Answer", "text": "Sim. Dias quentes, suor intenso e atividade física costumam aumentar a necessidade de líquidos."}}, {"@type": "Question", "name": "A calculadora substitui orientação médica?", "acceptedAnswer": {"@type": "Answer", "text": "Não. Pessoas com condições renais, cardíacas ou outras restrições precisam de orientação individual."}}]}]}</script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-content">
+      <a href="index.html" class="logo" aria-label="Prato &amp; Peso - página inicial">
+        <img src="assets/logo-prato-peso.png" alt="Prato &amp; Peso" class="logo-image">
+      </a>
+      <nav class="main-nav" aria-label="Navegação principal">
+        <a href="index.html">Início</a>
+        <a href="imc.html">IMC</a>
+        <a href="tdee.html">Gasto calórico</a>
+        <a href="macros.html">Macros</a>
+        <a href="peso-ideal.html">Peso ideal</a>
+        <a href="agua.html" class="active">Água por dia</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-header">
+      <div class="container narrow-content">
+        <h1>Calculadora de água por dia</h1>
+        <p>Defina uma meta simples de hidratação com base no seu peso e no seu nível de atividade física.</p>
+      </div>
+    </section>
+
+    <section class="calc-section">
+      <div class="container calc-grid">
+        <div class="calc-card">
+          <h2>Preencha seus dados</h2>
+          <form id="agua-form">
+            <div class="form-group">
+              <label for="peso">Peso (kg)</label>
+              <input type="number" id="peso" placeholder="Ex: 89,9" min="1" step="0.1" inputmode="decimal" required>
+            </div>
+            <div class="form-group">
+              <label for="atividade">Nível de atividade</label>
+              <select id="atividade" required>
+                <option value="30">Baixo</option>
+                <option value="35" selected>Moderado</option>
+                <option value="40">Alto</option>
+              </select>
+            </div>
+            <button type="submit" class="btn primary full-width">Calcular água por dia</button>
+            <p class="form-hint">A meta é uma referência e pode subir em dias quentes ou com treino intenso.</p>
+          </form>
+        </div>
+
+        <div class="result-card">
+          <h2>Resultado</h2>
+          <div id="resultado-agua" class="result-main" aria-live="polite">
+            <p>Informe peso e atividade e clique em “Calcular água por dia”.</p>
+          </div>
+          <div class="result-table">
+            <h3>Resumo diário</h3>
+            <table>
+              <thead><tr><th>Medida</th><th>Quantidade</th></tr></thead>
+              <tbody>
+                <tr><td>Litros por dia</td><td id="litros-dia">-</td></tr>
+                <tr><td>Copos de 250 mL</td><td id="copos-dia">-</td></tr>
+                <tr><td>Garrafas de 500 mL</td><td id="garrafas-dia">-</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <div class="container narrow-content">
+        <h2>Por que a hidratação entra no processo de emagrecimento</h2>
+        <p>
+          Beber água suficiente ao longo do dia ajuda na saciedade, na disposição, no treino, no funcionamento intestinal e até na percepção de fome. Nem todo desconforto é fome;
+          às vezes o corpo está pedindo líquidos.
+        </p>
+        <p>
+          A conta em mililitros por quilo é uma forma prática de transformar a hidratação em uma meta objetiva. Depois, você ajusta conforme clima, suor, treino e necessidades específicas.
+        </p>
+      </div>
+    </section>
+
+    <section class="content-section section-soft">
+      <div class="container">
+        <h2>Perguntas frequentes sobre água por dia</h2>
+        <div class="faq-grid">
+          <article class="faq-item"><h3>Preciso beber tudo de uma vez?</h3><p>Não. O ideal é distribuir a ingestão ao longo do dia.</p></article>
+          <article class="faq-item"><h3>Treino pesado muda a meta?</h3><p>Sim. Quanto mais suor e calor, maior tende a ser a necessidade de líquidos.</p></article>
+          <article class="faq-item"><h3>Essa meta é suficiente para todo mundo?</h3><p>É uma referência inicial. Algumas condições de saúde exigem ajuste individual.</p></article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+  <div class="container footer-content">
+    <p>Prato &amp; Peso &copy; <span id="year"></span> • Ferramentas grátis para quem quer emagrecer com consciência.</p>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+  <script src="agua.js"></script>
+</body>
+</html>
